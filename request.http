@@ -1,0 +1,58 @@
+#endpoint usuarios
+###Muestra todos los usuarios
+GET http://localhost:9000/api HTTP/1.1
+
+###Inserta un usuario
+POST http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "John",
+    "primer_apellido": "Doe",
+    "id_tarea_usuario": 1
+}
+
+###Borra un usuario
+DELETE http://localhost:9000/api/32 HTTP/1.1
+
+###Actualiza un usuario
+PUT http://localhost:9000/api/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Stephen",
+    "primer_apellido": "Hawkin",
+    "id_tarea_usuario": 3
+}
+
+#endpoint tareas
+
+###Muestra todas las tareas
+GET http://localhost:9000/tarea HTTP/1.1
+
+###Muestra las tareas que tiene el usuario John Doe "en bandeja"
+GET http://localhost:9000/tarea/1 HTTP/1.1
+
+###Busca la coincidencia de las tareas con alguna cadena
+GET http://localhost:9000/tarea/buscar/comida HTTP/1.1
+
+###Alta de una tarea
+POST http://localhost:9000/tarea HTTP/1.1
+Content-Type: application/json
+
+{
+    "tarea": "Limpar la Sala",
+    "id_tarea_usuario": 0,
+    "status": 1
+}
+
+###Borrar tarea
+DELETE http://localhost:9000/tarea/4 HTTP/1.1
+
+###Asigna tarea a un Usuario
+PUT http://localhost:9000/tarea/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_tarea_usuario": 1
+}
